@@ -1,0 +1,15 @@
+Nginx container:
+
+Service name: choose any you want (for example: web, front, etc)
+Container name: nginx_task6
+Image: nginx:alpine
+Nginx service is accessed on port 10086
+Request to the nginx should return tomcat default page (create nginx config file and mount it to /etc/nginx/nginx.conf)
+Tomcat container:
+
+Service name: tomcat (important part of nginx’ configuration!)
+Container name: tomcat_task6
+Image: tomcat:8.0
+
+
+There was a ser defined network 4_default

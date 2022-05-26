@@ -1,0 +1,23 @@
+version: "3"
+
+networks:
+  4_default:
+    external: true
+
+services:
+   web:
+    container_name: nginx_task6
+    image: nginx:alpine
+    networks:
+      - 4_default
+    ports:
+      - 10086:80
+    volumes:
+      - type: bind
+        source: ./nginx.conf
+        target: /etc/nginx/nginx.conf
+   tomcat:
+    networks:
+      - 4_default 
+    container_name: tomcat_task6
+    image: tomcat:8.0

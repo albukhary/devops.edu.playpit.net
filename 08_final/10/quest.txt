@@ -1,0 +1,14 @@
+Q1 A Linux kernel feature that limits, accounts for, and isolates the resource usage:
+cgroups
+
+Q2 A lightweight CLI that directly communicates with docker daemon:
+docker
+
+Q3 A docker client cannot communicate with Docker daemon via:
+udp socket
+
+Q4 A feature of Linux kernel that partitions resources (network, uts, etc):
+namespaces
+
+Q5 It’s a daemon, handles all the low-level container management tasks, storage, image distribution, etc …
+contianerd

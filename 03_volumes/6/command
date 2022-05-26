@@ -1,0 +1,5 @@
+docker volume create c10087_custom_volume
+
+docker run -d -p 10087:80 -v c10087_custom_volume:/usr/share/nginx/html --name c10087 nginx
+
+mount from created volume

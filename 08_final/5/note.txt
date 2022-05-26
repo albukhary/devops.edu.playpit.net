@@ -1,0 +1,20 @@
+tomcat:jdk8-openjdk-buster is build on top of debian image
+
+Q1 What Images is the smallest one?
+busybox
+
+Q2 tomcat:jdk8-openjdk-buster is build on top of
+openjdk image
+
+Q3 What the image has the biggest size?
+centos:8
+
+Q4 What is busybox:latest image size in bytes?
+1239756
+
+Q5 What is mariadb:latest ENTRYPOINT
+docker-entrypoint.sh
+
+Q6 What is mariadb:latest CMD
+mariadbd
+

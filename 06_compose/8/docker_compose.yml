@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  redis:
+    container_name: redis-server
+    image: bitnami/redis:5.0
+    hostname: redis-server
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
+      REDIS_DISABLE_COMMANDS: FLUSHDB,FLUSHALL
+    ports:
+      - published: 6379
+        target: 6379
+    volumes:
+      - redis_data:/bitnami/redis/data:rw
+    networks:
+      - database
+
+volumes:
+  redis_data:
+    name: redis_data
+
+networks:
+  database:
+    name: database
+
+# docker volume create redis_data
+# docker network create database
+# docker run -d --name redis-server --hostname redis-server \
+# -e ALLOW_EMPTY_PASSWORD=yes -e REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL \
+# -p 6379:6379 -v redis_data:/bitnami/redis/data:rw \
+# --network database bitnami/redis:5.0

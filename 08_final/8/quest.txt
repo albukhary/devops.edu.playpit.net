@@ -1,0 +1,13 @@
+Q1 By default a container’s filesystem persists even after container exits
+true
+
+Q2 Your local user has 501 uid, your image contains instruction USER 1000. You run the container as following:
+docker run -v $(pwd):/pwd {image} touch /pwd/file
+Please choose proper permissions of $(pwd)/file
+other
+
+Q3 What command to use for converting container to image?
+docker commit
+
+Q4 One of following commands will keep container running in “background” mode
+docker run -dt centos

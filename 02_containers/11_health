@@ -1,0 +1,49 @@
+
+docker run --rm -d \
+    --name=tomcat-man \
+    --health-cmd="curl --silent --fail localhost:8080 || exit 1" \
+    --health-interval=5s \
+    --health-retries=12 \
+    --health-timeout=2s \
+    tomcat:8.5.0
+
+
+
+docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Status}}" -f name=tomcat-man
+
+docker inspect tomcat-man | jq -r '.[].State.Health'
+
+
+RUNNING containers
+
+
+docker run --user 1000:0 jenkins id
+docker run --group-add 123 jenkins id
+docker run --workdir /var/jenkins_home jenkins pwd
+docker run -it -e MYVAR="My Variable" centos env | grep MYVAR
+docker run -d --label app=web1 nginx
+docker run -d myhttpd:1.0
+docker run -P -d myhttpd:1.0
+docker run -d -p 8081:80 --name h8081 myhttpd:1.0
+docker run -d --restart=always --name sleeper centos sleep 5
+docker run -d --restart=unless-stopped --name sleeper centos sleep 5
+docker run centos cat /etc/redhat-release
+docker run -it centos bash
+docker run -dit centos
+docker run -dit busybox
+
+STOPPING AND REMOVING containers
+
+docker stop h8082
+docker rm 014e5efa5ca9
+docker rm $(docker stop $(docker ps -a -q))
+docker ps -qa | xargs -r docker rm
+
+WORKING WITH LOGS
+
+docker logs container_name 
+docker logs container_id
+docker logs -f ...
+
+docker run -dt --log-driver=journald --name httpd httpd
+journalctl -ab CONTAINER_NAME=httpd

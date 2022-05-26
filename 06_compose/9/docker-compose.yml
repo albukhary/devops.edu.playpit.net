@@ -1,0 +1,54 @@
+version: '3'
+
+services:
+  web:
+    container_name: web
+    hostname: web
+    build: 
+      context: /task/9/nginx_php
+    image: web_locally_build
+    environment:
+      - ALLOW_OVERRIDE=true
+    ports:
+      - "10089:80"
+    volumes:
+      - ./app:/var/www/html/
+
+  db:
+    container_name: db
+    hostname: db
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: test
+      MYSQL_DATABASE: database
+    ports:
+      - "8889:3306"
+
+# docker build -f /task/9/nginx_php/Dockerfile --tag web_locally_build .
+
+# docker network create nginx_php_default
+
+
+# docker run -d --name db --hostname db \
+# --network nginx_php_default \
+# --restart always \
+# -v /task/9/nginx_php/mysql:/var/lib/mysql \
+# -e MYSQL_ROOT_PASSWORD=root \
+# -e MYSQL_USER=admin \
+# -e MYSQL_PASSWORD=test \
+# -e MYSQL_DATABASE=database \
+# -p 8889:3306 -v /task/9/nginx_php/mysql:/var/lib/mysql \
+#  mysql:5.7
+
+
+# docker run -d --name web --hostname web \
+# --network nginx_php_default \
+# -e ALLOW_OVERRIDE=true \
+# -p 10089:80 -v /task/9/nginx_php/app:/var/www/html \
+#  web_locally_build
+

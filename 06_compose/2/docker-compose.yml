@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  web:
+    image: nginx:alpine
+    environment:
+      TZ: Europe/Budapest
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /run
+      - /tmp
+      - /var/cache/nginx
+    tmpfs:
+      - /run
+      - /tmp
+      - /var/cache/nginx

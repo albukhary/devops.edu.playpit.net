@@ -1,0 +1,31 @@
+$ DOCKER_HOST=tcp://0.0.0.0:2375 # if it's set to use TCP socket
+
+$ docker version
+$ docker version -f '{{ .Client.Version }}'
+$ docker version -f '{{ .Server.Version }}'
+
+$ docker info
+$ docker info -f '{{ json . }}' | jq
+
+
+
+Q1 What Docker Server version is installed?
+20.10.16
+Q2 How many containers are there (in all states)?
+2
+Q3 What Storage Driver is set by default?
+overlay2
+Q4 What Runtime is set by default?
+runc
+Q5 What Docker Root Dir is set by default?
+/var/lib/docker
+Q6 What Cgroup Driver is set by default?
+cgroupfs
+Q7 Docker is running as a service (daemon), what unit file is used for this? Enter absolute real path.
+/usr/lib/systemd/system/docker.service
+
+
+readlink -f docker.service
+
+
+

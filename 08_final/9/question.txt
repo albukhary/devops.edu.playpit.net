@@ -1,0 +1,16 @@
+Q1 You’re creating a container with this command:
+docker run -d --name myubunut ubuntu /bin/bash -c '
+ while true; do
+   echo current date is $(date);
+   sleep 10;
+ done
+'
+
+Which network is it attached to?
+bridge
+
+Q2 This command creates custom network
+docker network create Lazizbek-Kahramonov
+
+Q3 This command creates custom network with none driver
+nothing from above

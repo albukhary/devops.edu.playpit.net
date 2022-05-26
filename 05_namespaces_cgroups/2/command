@@ -1,0 +1,36 @@
+docker run -d --pid="container:nginx_pid" --name busy_sleep_inf busybox
+
+docker run -d --pid="container:nginx_pid" --name busy_sleep_inf busybox sleep infinity
+
+3 -----------
+We\'ve created nginx-net container for you. 
+Run net-tools container in nginx-net NET Namespace.
+-------------
+docker run -d  --name nginx-net nginx:alpine
+
+docker run -dt --name net-tools --network container:nginx-net sbeliakou/net-tools
+
+docker exec nginx-net hostname -i
+>172.18.0.5
+
+----------------5
+container name: tomcat
+should run in detached mode
+image: tomcat:jdk8-openjdk-slim
+container should have 100 Mb memory limit
+container should use unlimited swap
+container should reserve 50 Mb of memory
+-----------------
+docker run -d --name tomcat --memory 100m --memory-reservation 50m --memory-swap -1 tomcat:jdk8-openjdk-slim 
+
+docker run -d --name cpu-stress --cpu-quota=20000 alpine md5
+
+----------------------
+container name: cpu-stress;
+should run in detach mode;
+image: alpine;
+command: md5sum /dev/urandom
+container should have 20% CPU limit (use --cpu-quota=20000 option).
+----------------------
+
+docker run -d --name cpu-stress --cpu-quota=20000 alpine md5sum /dev/urandom

@@ -1,0 +1,30 @@
+The Docker file RUN command starts a program that runs only for one line of the Docker file
+
+
+Q1 Information on how to build a Docker image is written in a file named
+Dockerfile
+
+
+Q2 Each line of a docker file _____.
+makes a new independent image based on the previous line’s image
+
+
+Q3 What does the CMD instruction in a Docker file do?
+it sets the program to run when the container starts
+
+
+Q4 The Docker file RUN command starts a program that runs _____
+only for one line of the Docker file
+
+
+Q5 Where does the Docker file ENV command set environment variables?
+both in the rest of the docker file, and in the finished image
+
+Q6 The Docker file WORKDIR instruction changes directories _____.
+both for the rest of the docker file, and in the finished image
+
+Q7 A Docker image provides a template for a container with all the necessary files of an application, but has no instructions to run it
+false
+
+Q8 There’re 2 Dockerfiles for building application images. How many common layers will these images have?
+1

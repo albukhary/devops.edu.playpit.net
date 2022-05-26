@@ -1,0 +1,23 @@
+Inspect Ports
+
+$ docker port b557521c9c2f
+80/tcp -> 0.0.0.0:32768
+
+$ docker inspect b557521c9c2f | jq '.[].NetworkSettings.Ports'
+{
+  "80/tcp": [
+    {
+      "HostIp": "0.0.0.0",
+      "HostPort": "32768"
+    }
+  ]
+}
+
+
+Select particular ones
+$ docker run --help | grep publish
+  -p, --publish list    Publish a container's port(s) to the host
+  -P, --publish-all     Publish all exposed ports to random ports
+
+
+docker run -v /var/log/:

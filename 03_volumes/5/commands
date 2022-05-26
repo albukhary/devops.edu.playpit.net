@@ -1,0 +1,3 @@
+docker run -d -v '/root/index.html:/usr/share/nginx/html/index.html' --name html_data busybox
+
+docker run -d -p 10085:80 --volumes-from html_data --name c10085 nginx

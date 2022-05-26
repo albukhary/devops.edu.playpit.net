@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+   nginx_web:
+    container_name: nginx_web
+    logging:
+      driver: journald
+    image: nginx:1.16
+    env_file:
+      - /task/5/nginx_env
+    ports:
+      - 10085:80
+      - 50000:50000
+    volumes:
+      - /task/5/index.html:/usr/share/nginx/html/index.html
